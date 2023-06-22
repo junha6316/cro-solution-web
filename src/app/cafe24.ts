@@ -8,10 +8,10 @@ const scopes = "mall.read_application";
 export const getPermissionURL = (mall_id: string) =>
   `https://${mall_id}.cafe24api.com/api/v2/oauth/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes}`;
 
-export const getAceessToken = async (mall_id: string, authCode: string) => {
+export const getAceessToken = async (mallId: string, authCode: string) => {
   try {
     const res = await fetch(
-      `https://${mall_id}.cafe24api.com/api/v2/oauth/token`,
+      `https://${mallId}.cafe24api.com/api/v2/oauth/token`,
       {
         method: "POST",
         headers: {
@@ -25,6 +25,7 @@ export const getAceessToken = async (mall_id: string, authCode: string) => {
         }),
       }
     );
+    return res;
   } catch (err) {
     console.log(err);
   }

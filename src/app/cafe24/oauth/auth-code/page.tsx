@@ -23,7 +23,11 @@ export default function GetAuthCodePage() {
       }),
     })
       .then((res) => res.json())
-      .then((data) => setData(data))
+      .then((data) => {
+        for (const key in data) {
+          Cookies.set(key, data[key]);
+        }
+      })
       .catch((error) => console.error("Error:", error));
   }, []);
 

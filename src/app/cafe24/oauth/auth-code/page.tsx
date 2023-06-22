@@ -33,7 +33,7 @@ export default function GetAuthCodePage() {
 
   if (Object.keys(data).length !== 0) {
     console.log(data);
-    return <div>data</div>;
+    return <div>Get Access Token Success</div>;
   }
 
   return <main>Loading..</main>;

@@ -1,16 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
-// pages/api/getAccessToken.ts
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export async function POST(req: NextApiRequest) {
   const clientId = "WMDx27gTAB4sEbvDOBIguB";
   const clientSecret = "NYaOmRREL5vp5YGFRslfZE";
   const redirectUri = "https://cro-solution.vercel.app/cafe24/oauth/auth-code/";
 
   const { mallId, authCode } = req.body;
+  console.log(req.body);
 
   try {
     const credentials = `${clientId}:${clientSecret}`;
@@ -33,10 +30,12 @@ export default async function handler(
     );
 
     const data = await response.json();
+    console.log(data);
 
-    res.status(200).json(data);
+    return NextResponse.json({ data });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Failed to fetch access token" });
+
+    return NextResponse.json({});
   }
 }

@@ -1,15 +1,12 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: NextRequest) {
   const clientId = "WMDx27gTAB4sEbvDOBIguB";
   const clientSecret = "NYaOmRREL5vp5YGFRslfZE";
   const redirectUri = "https://cro-solution.vercel.app/cafe24/oauth/auth-code/";
 
-  const { mallId, authCode } = req.body;
-  console.log(req.body);
-
   try {
+    const { mallId, authCode } = await req.json();
     const credentials = `${clientId}:${clientSecret}`;
     const base64Credentials = Buffer.from(credentials).toString("base64");
 

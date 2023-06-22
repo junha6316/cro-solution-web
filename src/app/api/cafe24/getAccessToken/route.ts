@@ -26,6 +26,14 @@ export async function POST(req: NextRequest) {
       }
     );
 
+    console.log(
+      JSON.stringify({
+        grant_type: "authorization_code",
+        code: authCode,
+        redirect_uri: redirectUri,
+      })
+    );
+
     const data = await response.json();
     console.log(data);
 

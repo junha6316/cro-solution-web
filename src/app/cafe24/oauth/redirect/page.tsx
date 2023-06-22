@@ -4,7 +4,7 @@ import { redirect, useSearchParams } from "next/navigation";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-export default function GetAuthCodePage() {
+export default function Cafe24OAuthRedirectPage() {
   const [data, setData] = useState({});
   const params = useSearchParams();
 
@@ -32,7 +32,7 @@ export default function GetAuthCodePage() {
   }, []);
 
   if (Object.keys(data).length !== 0) {
-    console.log(data);
+    redirect("/cafe24/scripts");
     return <div>Get Access Token Success</div>;
   }
 

@@ -1,6 +1,6 @@
 let clientId = "WMDx27gTAB4sEbvDOBIguB";
 let clientSecret = "NYaOmRREL5vp5YGFRslfZE";
-let redirectUri = "https://cro-solution.vercel.app/cafe24/oauth/auth-code/";
+let redirectUri = "https://cro-solution.vercel.app/cafe24/oauth/redirect/";
 
 const scopes = "mall.read_application";
 

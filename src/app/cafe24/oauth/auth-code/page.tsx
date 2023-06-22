@@ -11,17 +11,21 @@ export default function GetAuthCodePage() {
   const mallId = Cookies.get("mallId");
 
   useEffect(() => {
-    async function fetchData() {
-      if (!(mallId && code)) {
-        return;
-      }
+    const body = {
+      mallId: "yourMallId",
+      authCode: "yourAuthCode",
+    };
 
-      const response = await getAceessToken(mallId, code);
-
-      const data = await response?.json();
-    }
-
-    fetchData();
+    fetch("/api/cafe24/getAccessToken", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((error) => console.error("Error:", error));
   }, []);
 
   if (data) {

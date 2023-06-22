@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: JSON.stringify({
-          "grant-type": "authorization_code",
+          grant_type: "authorization_code",
           code: authCode,
           redirect_uri: redirectUri,
         }),

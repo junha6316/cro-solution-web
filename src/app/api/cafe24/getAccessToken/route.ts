@@ -11,7 +11,6 @@ export async function POST(req: NextRequest) {
     const base64Credentials = Buffer.from(credentials).toString("base64");
 
     const formData = new URLSearchParams();
-
     formData.append("grant_type", "authorization_code");
     formData.append("code", authCode);
     formData.append("redirect_uri", redirectUri);
@@ -27,25 +26,10 @@ export async function POST(req: NextRequest) {
         body: formData.toString(),
       }
     );
-
-    console.log(
-      JSON.stringify({
-        grant_type: "authorization_code",
-        code: authCode,
-        redirect_uri: redirectUri,
-      })
-    );
-
     const data = await response.json();
-    console.log(data);
 
     return NextResponse.json({
       ...data,
-      test: JSON.stringify({
-        grant_type: "authorization_code",
-        code: authCode,
-        redirect_uri: redirectUri,
-      }),
     });
   } catch (err) {
     console.error(err);

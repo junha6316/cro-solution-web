@@ -32,7 +32,7 @@ export async function POST(req: NextApiRequest) {
     const data = await response.json();
     console.log(data);
 
-    return NextResponse.json({ data });
+    return NextResponse.json({ ...data });
   } catch (err) {
     console.error(err);
 

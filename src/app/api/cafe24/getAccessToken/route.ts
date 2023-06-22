@@ -37,7 +37,14 @@ export async function POST(req: NextRequest) {
     const data = await response.json();
     console.log(data);
 
-    return NextResponse.json({ ...data });
+    return NextResponse.json({
+      ...data,
+      test: JSON.stringify({
+        grant_type: "authorization_code",
+        code: authCode,
+        redirect_uri: redirectUri,
+      }),
+    });
   } catch (err) {
     console.error(err);
 

@@ -1,12 +1,14 @@
 "use client";
 import { getAceessToken } from "@/app/cafe24";
-import { redirect, useSearchParams } from "next/navigation";
+import { redirect, useRouter, useSearchParams } from "next/navigation";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
 export default function Cafe24OAuthRedirectPage() {
-  const [data, setData] = useState({});
   const params = useSearchParams();
+  const { push } = useRouter();
+
+  const [data, setData] = useState({});
 
   useEffect(() => {
     const authCode = params.get("code");
@@ -32,7 +34,7 @@ export default function Cafe24OAuthRedirectPage() {
   }, []);
 
   if (Object.keys(data).length !== 0) {
-    redirect("/cafe24/scripts");
+    push("/cafe24/scripts/");
     return <div>Get Access Token Success</div>;
   }
 

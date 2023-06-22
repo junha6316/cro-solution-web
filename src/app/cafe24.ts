@@ -10,12 +10,14 @@ export const getPermissionURL = (mall_id: string) =>
 
 export const getAceessToken = async (mallId: string, authCode: string) => {
   try {
+    const credentials = `${clientId}:${clientSecret}`;
+    const base64Credentials = Buffer.from(credentials).toString("base64");
     const res = await fetch(
       `https://${mallId}.cafe24api.com/api/v2/oauth/token`,
       {
         method: "POST",
         headers: {
-          Authorization: `Basic ${authCode}`,
+          Authorization: `Basic ${base64Credentials}`,
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: JSON.stringify({

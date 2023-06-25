@@ -10,6 +10,7 @@ export default function Cafe24OSetScriptsPage() {
       const accessToken = Cookies.get("access_token");
       const response = await fetch("/api/cafe24/scripts", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           shop_no,
           accessToken,

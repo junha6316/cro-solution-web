@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   const clientId = "WMDx27gTAB4sEbvDOBIguB";
   const clientSecret = "NYaOmRREL5vp5YGFRslfZE";
-  const redirectUri = "https://cro-solution.vercel.app/cafe24/oauth/auth-code/";
+  const redirectUri = "https://cro-solution.vercel.app/cafe24/oauth/redirect/";
 
   try {
     const { mallId, authCode } = await req.json();

@@ -14,7 +14,7 @@ export default function Cafe24OAuthRedirectPage() {
     const authCode = params.get("code");
     const mallId = Cookies.get("mallId");
 
-    fetch("/api/cafe24/getAccessToken", {
+    fetch("/api/cafe24/account/token", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

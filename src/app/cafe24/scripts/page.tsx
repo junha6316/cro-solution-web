@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 export default function Cafe24OSetScriptsPage() {
   const handleClick = async () => {
     try {
-      const mallId = Cookies.get("mallId");
+      const mallId = Cookies.get("mall_id");
       const shop_no = Cookies.get("shop_no");
       const accessToken = Cookies.get("access_token");
       const response = await fetch("/api/cafe24/scripts", {

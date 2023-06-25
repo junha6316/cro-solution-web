@@ -8,6 +8,13 @@ export default function Cafe24OSetScriptsPage() {
       const mallId = Cookies.get("mall_id");
       const shop_no = Cookies.get("shop_no");
       const accessToken = Cookies.get("access_token");
+      console.log({
+        shop_no,
+        accessToken,
+        mallId,
+        src: "https://rockettools-test.s3.ap-northeast-2.amazonaws.com/test.js",
+      });
+
       const response = await fetch("/api/cafe24/scripts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -5,7 +5,6 @@ import Cookie from "js-cookie";
 
 export default function Cafe24OAuthPage() {
   const params = useSearchParams();
-
   const mallId = params.get("mall_id");
   if (mallId) {
     Cookie.set("mallId", mallId);

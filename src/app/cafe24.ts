@@ -2,7 +2,7 @@ let clientId = "WMDx27gTAB4sEbvDOBIguB";
 let clientSecret = "NYaOmRREL5vp5YGFRslfZE";
 let redirectUri = "https://cro-solution.vercel.app/cafe24/oauth/redirect/";
 
-const scopes = "mall.read_application";
+const scopes = "mall.read_application mall.write_application";
 
 /** cafe24 url을 가져옴 */
 export const getPermissionURL = (mall_id: string) =>

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { shop_no, accessToken, src } = await req.json();
+    const { shop_no, accessToken, src, mallId } = await req.json();
     const response = await fetch(
       `https://${mallId}.cafe24api.com/api/v2/admin/scripttags`,
       {

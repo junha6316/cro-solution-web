@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           shop_no,
           src,
-          display_location: "all",
+          display_location: ["all"],
         }),
       }
     );

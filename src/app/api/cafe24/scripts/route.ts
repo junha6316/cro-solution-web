@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
           "X-Cafe24-Api-Version": " 2023-06-01",
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({
           shop_no,

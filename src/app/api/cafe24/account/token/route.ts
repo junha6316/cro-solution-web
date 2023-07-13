@@ -10,20 +10,18 @@ export async function POST(req: NextRequest) {
     const credentials = `${clientId}:${clientSecret}`;
     const base64Credentials = Buffer.from(credentials).toString("base64");
 
-    const formData = new URLSearchParams();
-    formData.append("grant_type", "authorization_code");
-    formData.append("code", authCode);
-    formData.append("redirect_uri", redirectUri);
-
     const response = await fetch(
-      `https://${mallId}.cafe24api.com/api/v2/oauth/token`,
+      `https://6f0c-121-130-230-101.ngrok-free.app/`,
       {
         method: "POST",
         headers: {
           Authorization: `Basic ${base64Credentials}`,
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: formData.toString(),
+        body: JSON.stringify({
+          mall_id: mallId,
+          auth_code: authCode,
+        }),
       }
     );
     const data = await response.json();

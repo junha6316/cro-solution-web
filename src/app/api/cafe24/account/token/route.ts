@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     const base64Credentials = Buffer.from(credentials).toString("base64");
 
     const response = await fetch(
-      `https://6f0c-121-130-230-101.ngrok-free.app/`,
+      `https://6f0c-121-130-230-101.ngrok-free.app/apis/account/oauth/cafe24`,
       {
         method: "POST",
         headers: {

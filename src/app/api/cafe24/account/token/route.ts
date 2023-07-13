@@ -14,10 +14,6 @@ export async function POST(req: NextRequest) {
       `https://6f0c-121-130-230-101.ngrok-free.app/apis/account/oauth/cafe24`,
       {
         method: "POST",
-        headers: {
-          Authorization: `Basic ${base64Credentials}`,
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
         body: JSON.stringify({
           mall_id: mallId,
           auth_code: authCode,

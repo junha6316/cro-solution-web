@@ -5,7 +5,7 @@ let clientSecret = "NYaOmRREL5vp5YGFRslfZE";
 let redirectUri = "https://cro-solution.vercel.app/cafe24/oauth/redirect/";
 
 const scopes =
-  "mall.read_application mall.write_application mall.read_customer";
+  "mall.read_application mall.write_application mall.read_customer mall.read_store";
 
 /** cafe24 url을 가져옴 */
 export const getPermissionURL = (mall_id: string) =>
@@ -63,7 +63,7 @@ export const addScriptTags = async (
         headers: {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "application/json",
-          "X-Cafe24-Api-Version": " 2023-06-01",
+          "X-Cafe24-Api-Version": "2023-06-01",
         },
         body: JSON.stringify({
           shop_no,
